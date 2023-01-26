@@ -1,0 +1,9 @@
+<?php
+
+$AdminPage      =   array();
+$AdminPage      =  [
+
+];
+
+
+?>

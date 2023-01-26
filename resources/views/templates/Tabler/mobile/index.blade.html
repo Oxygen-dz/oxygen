@@ -1,0 +1,272 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Stidia - Home of cheap courses</title>
+  <meta name="keywords" content="stidia">
+  <meta name="description" content="Super easy way to watch your courses in cheapest pric in the world">
+
+  <style>
+    * {
+      margin: 0; padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #container {
+      overflow: hidden;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+
+    #background_video {
+      position: absolute;
+
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+
+      object-fit: cover;
+      height: 100%; width: 100%;
+    }
+
+    #video_cover {
+      position: absolute;
+
+      width: 100%; height: 100%;
+
+      background: url('video_cover.jpeg') no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    #video_controls {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    #play img {
+      width: 100px;
+    }
+    #pause img {
+      width: 90px;
+    }
+    #pause {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      #video_controls {
+        display: none;
+      }
+    }
+
+    /* Demo page specific styles */
+
+    body {
+      text-align: center;
+      font-family: 'proxima-nova', Helvetica;
+    }
+
+    #container {
+      height: 100%;
+    }
+
+    #overlay {
+      position: absolute;
+      top: 0; right: 0; left: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    #main_content {
+      z-index: 2;
+      position: relative;
+      display: inline-block;
+
+      /* Vertical center */
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #main_content h1 {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'proxima-nova-condensed', Helvetica;
+      color: #fff;
+      font-size: 35px;
+    }
+
+    #main_content .sub_head {
+      color: rgba(255,255,255,0.5);
+      font-size: 18px;
+    }
+
+    #main_content .info {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    #links {
+      margin-top: 50px;
+    }
+
+    #links button {
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 61px;
+      font-size: 12px;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 10px 25px;
+      display: inline-block;
+      margin-right: 15px;
+      background-color: transparent;
+    }
+
+    #links button:hover {
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 61px;
+      font-size: 12px;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 10px 25px;
+      display: inline-block;
+      margin-right: 15px;
+      background-color: red;
+    }
+    #footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+    }
+    #footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin: 10px;
+      font-size: 12px;
+    }
+    #footer a:first-child {
+      float: left;
+    }
+    #footer a:last-child {
+      float: right;
+    }
+
+
+  .searchBar {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15px;
+  }
+  .searchBar .searchInput {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 10px;
+  }
+    
+  </style>
+
+  <script src="https://use.typekit.net/nlq1kdt.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+<body>
+  <div id="container">
+    <video id="background_video" loop muted></video>
+    <div id="video_cover"></div>
+    <div id="overlay"></div>
+
+    <div id="video_controls">
+      <span id="play">
+        <img src="play.png">
+      </span>
+      <span id="pause">
+        <img src="pause.png">
+      </span>
+    </div>
+
+    <section id="main_content">
+      <div id="head">
+        <h1>Stidia</h1>
+        <p class="sub_head">Search your dream <b>Home</b></p>
+        <p class="info">Crazy Yeah! BUT it's real</p>
+      </div>
+
+      <div class="searchBar">
+        <input type="text" placeholder="Home ID" id="search" class="searchInput">
+      </div>
+
+      <div id="links">
+        <button type="submit">Search</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="footer">
+
+    <a href="#" target="_blank">
+      Powred By Chilya Group
+    </a>
+  </div>
+
+  <script src="{{APP_URL}}/{{TemplatePath}}/dist/js/dibeo-background-player.js"></script>
+  <script src="{{APP_URL}}/{{TemplatePath}}/dist/js/dibeo-background-player-main.js"></script>
+
+  <script>
+    if (window.location.host.indexOf('github.io') !== -1 && window.location.protocol !== "https:") {
+      window.location.protocol = "https";
+    }
+  </script>
+</body>
+</html>
+
+
+<script type="text/javascript">
+  
+(function () {
+
+  var bv = new Bideo();
+  bv.init({
+    // Video element
+    videoEl: document.querySelector('#background_video'),
+
+    // Container element
+    container: document.querySelector('body'),
+
+    // Resize
+    resize: true,
+
+    // autoplay: false,
+    isMobile: window.matchMedia('(max-width: 768px)').matches,
+
+    playButton: document.querySelector('#play'),
+    pauseButton: document.querySelector('#pause'),
+
+    // Array of objects containing the src and type
+    // of different video formats to add
+    src: [
+      {
+        src: '{{STORAGE_VIDEO}}/video-background.mp4',
+        type: 'video/mp4'
+      }
+    ],
+
+    // What to do once video loads (initial frame)
+    onLoad: function () {
+      document.querySelector('#video_cover').style.display = 'none';
+    }
+  });
+}());
+
+
+</script>

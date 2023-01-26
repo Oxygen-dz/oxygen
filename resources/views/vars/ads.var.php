@@ -1,0 +1,9 @@
+<?php
+
+$AdsPageArray      =   array();
+$AdsPageArray      =  [
+
+];
+
+
+?>
