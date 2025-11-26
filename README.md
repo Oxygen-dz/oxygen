@@ -1,6 +1,6 @@
 # OxygenFramework 2.0
 
-**The Most Advanced, AI-Powered PHP Framework**  
+**The Oxygen PHP Framework**  
 **Now with Full React, Next.js & Modern Frontend Support! 🎉**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
