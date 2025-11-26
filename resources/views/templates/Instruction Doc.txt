@@ -1,7 +1,0 @@
-Hi dear Oxygen user,
-in the lines below i will show you the right way to create a valide Oxygen template.
-
-------------------------------------------------------------------------------------------
-
-Instructions :
-1 - Declare the template name and template folder name in $FILES_SYSTEMS[...,'templates' => ['TemplateName' => 'templates/TemplateName' ] ] in config/filesystems.php
