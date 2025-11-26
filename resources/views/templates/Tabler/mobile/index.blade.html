@@ -2,13 +2,15 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Stidia - Home of cheap courses</title>
-  <meta name="keywords" content="stidia">
+  <title>{{APP_NAME}}</title>
+  <meta name="keywords" content="Oxygen Framework">
   <meta name="description" content="Super easy way to watch your courses in cheapest pric in the world">
+  <link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
 
   <style>
     * {
       margin: 0; padding: 0;
+      list-style: none;
     }
 
     html, body {
@@ -95,7 +97,7 @@
     #main_content h1 {
       text-transform: uppercase;
       font-weight: 600;
-      font-family: 'proxima-nova-condensed', Helvetica;
+      font-family: 'Varela Round';
       color: #fff;
       font-size: 35px;
     }
@@ -174,7 +176,20 @@
     font-size: 14px;
     padding: 10px;
   }
-    
+    ul{
+      margin-top: 20px;
+      padding: 0;
+      list-style: none;
+    }
+    ul li{
+      display: inline-block;
+      margin: 10px;
+    }
+    ul li a{
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
   </style>
 
   <script src="https://use.typekit.net/nlq1kdt.js"></script>
@@ -186,36 +201,47 @@
     <div id="video_cover"></div>
     <div id="overlay"></div>
 
-    <div id="video_controls">
+    <!-- <div id="video_controls">
       <span id="play">
         <img src="play.png">
       </span>
       <span id="pause">
         <img src="pause.png">
       </span>
-    </div>
+    </div> -->
 
     <section id="main_content">
       <div id="head">
-        <h1>Stidia</h1>
-        <p class="sub_head">Search your dream <b>Home</b></p>
-        <p class="info">Crazy Yeah! BUT it's real</p>
+        <h1>{{APP_NAME}}</h1>
+        <p class="sub_head">An Algerian-made open-source PHP framework with built-in Python support rejuvenates PHP.</p>
+        <p class="info">Simple, Compact, Easy to learn!</p>
+
+        <ul>
+          <li> <a href="https://github.com/Oxygen-dz/oxygenframework" target="_blank">Contribute</a></li>
+          <li> <a href="https://github.com/Oxygen-dz/oxygenframework" target="_blank">Support / Donate The Project</a></li>
+          <li> <a href="https://github.com/Oxygen-dz/oxygenframework" target="_blank" style="color:rgb(23, 223, 173);">Be our sponsore</a></li>
+        </ul>
+        <ul style="margin-top: -5px;">
+          <!-- <li> <a href="#" target="_blank">Getting Started (Soon)</a></li> -->
+          <li> <a href="#" target="_blank">Report a bug</a></li>
+        </ul>
+
       </div>
 
-      <div class="searchBar">
+      <!-- <div class="searchBar">
         <input type="text" placeholder="Home ID" id="search" class="searchInput">
       </div>
 
       <div id="links">
         <button type="submit">Search</button>
       </div>
-    </section>
+    </section> -->
   </div>
 
   <div id="footer">
 
-    <a href="#" target="_blank">
-      Powred By Chilya Group
+    <a href="https://github.com/Oxygen-dz/oxygenframework" target="_blank">
+      Powred By Oxygen Community with ❤️ in <b>Algeria</b> Created by Mr <b>Redwan Aouni</b>
     </a>
   </div>
 

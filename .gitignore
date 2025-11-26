@@ -1,6 +1,48 @@
-composer.phar
+# Dependencies
 /vendor/
+/node_modules/
 
-# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+# Composer
+composer.lock
+
+# Environment
+.env
+.env.backup
+.env.local
+
+# IDE
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Cache & Storage
+/storage/cache/*
+!/storage/cache/.gitkeep
+/storage/queue/*
+!/storage/queue/.gitkeep
+
+# Uploads (keep structure, ignore files)
+/public/storage/images/*
+!/public/storage/images/.gitkeep
+/public/storage/videos/*
+!/public/storage/videos/.gitkeep
+/public/storage/audio/*
+!/public/storage/audio/.gitkeep
+/public/storage/files/*
+!/public/storage/files/.gitkeep
+
+# Logs
+*.log
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+# Temporary files
+.header-template.php
+GITHUB_READY.md

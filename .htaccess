@@ -1,34 +1,19 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . index.php [L]
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
 
+    RewriteEngine On
 
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
 
-
-# <IfModule mod_rewrite.c>
-
-# Tell PHP that the mod_rewrite module is ENABLED.
-
-# SetEnv HTTP_MOD_REWRITE On
-
-# Options FollowSymLinks
-
-# RewriteEngine on
-
-# RewriteCond %{REQUEST_FILENAME} !-f
-
-# RewriteCond %{REQUEST_FILENAME} !-d
-
-# The rest of your rewrite rules here
-
-# RewriteRule ^/~([^/]+)/?(.*) /u/$1/$2 [R]
-
-# RewriteRule ([^/]+)/?$ index.php?id=$1 [NC,L]
-
-# RewriteRule ^([a-z0-9\-]+)/([a-z0-9\-]+)/?$ index.php?c=$1&d=$2 [NC,L]
-
-# Handle product requests
-
-# </IfModule>
+    # Send All Requests To Public Directory
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

@@ -1,43 +1,18 @@
 <?php
 
-/**
- * database.php
- *
- * Database Access
- *
- * @category   E-Wallet
- * @package    Oxygen
- * @author     Redwan Aouni <aouniradouan@gmail.com>
- * @copyright  2021 - Oxygen
- * @version    1.0.0
- * @since      File available since Release 1.0.0
- */
+return [
 
-
-
-$DATABASE     =    [
-
-    'default' => $_ENV['DB_CONNECTION'],
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     'connections' => [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => null,
-            'dsn' => 'mysql:host='.$_ENV['DB_HOST'].';dbname='.$_ENV['DB_DATABASE'],
-            'host' => 'localhost',
-            'port' => '3306',
-            'database' => '',
-            'username' => $_ENV['DB_USERNAME'],
-            'password' => $_ENV['DB_PASSWORD'],
-            'prefix'   => ''
+            'dsn' => 'mysql:host=' . env('DB_HOST', '127.0.0.1') . ';dbname=' . env('DB_DATABASE', 'oxygen'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
         ]
 
     ]
 
-
 ];
-
-$DefaultDriver      =   $DATABASE['default'];
-
-$database           =   new Nette\Database\Connection($DATABASE['connections'][$DefaultDriver]['dsn'], $DATABASE['connections'][$DefaultDriver]['username'], $DATABASE['connections'][$DefaultDriver]['password']);

@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Oxygen Console - CLI Tool for OxygenFramework
+ * 
+ * This is the command-line interface for the OxygenFramework.
+ * It provides artisan-like commands for code generation, database migrations,
+ * and other development tasks.
+ * 
+ * @package    OxygenFramework
+ * @author     Redwan Aouni <aouniradouan@gmail.com>
+ * @copyright  2024 - OxygenFramework
+ * @version    2.0.0
+ * 
+ * Usage:
+ *   php oxygen list                    - List all available commands
+ *   php oxygen make:controller User    - Create a new controller
+ *   php oxygen make:model Post         - Create a new model
+ *   php oxygen make:middleware Auth    - Create a new middleware
+ *   php oxygen serve                   - Start development server
+ */
+
+// Bootstrap the application
+require __DIR__ . '/vendor/autoload.php';
+
+use Oxygen\Console\OxygenKernel;
+use Oxygen\Core\Application;
+
+// Initialize the Application
+$app = new Application(__DIR__);
+
+// Create and run the console kernel
+$kernel = new OxygenKernel();
+$kernel->handle($argv);

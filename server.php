@@ -1,74 +1,43 @@
 <?php
-if( !isset( $_SESSION ) ) { session_start(); } 
-/* =============================================================================================================================*/
-/* =============================================================================================================================*/
 
 /**
- * server.php
- *
- * Main file requirments
- *
- * @category   E-Wallet
- * @package    Oxygen
+ * OxygenFramework Bootstrap
+ * 
+ * This file bootstraps the OxygenFramework application.
+ * 
+ * @package    OxygenFramework
  * @author     Redwan Aouni <aouniradouan@gmail.com>
- * @copyright  2021 - Oxygen
- * @version    1.0.0
- * @since      File available since Release 1.0.0
+ * @copyright  2024 - OxygenFramework
+ * @version    2.0.0
  */
 
-/* =============================================================================================================================*/
-/* =============================================================================================================================*/
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
 
-	// License
-	require_once __DIR__ .  '/' . 'app/license-halper.php';
+// Load Composer autoloader
+require_once __DIR__ . '/vendor/autoload.php';
 
-	// include autoload file and load all dependencies
-	require_once __DIR__ .  '/' . 'vendor/autoload.php';
+use Oxygen\Core\Application;
 
-	// Errors Handler
-	require_once __DIR__ .  '/' . 'config/errors.php';
+// Initialize Application
+$app = new Application(__DIR__);
 
-	// File Systems
-	require_once __DIR__ .  '/' . 'config/filesystems.php';
+// Register Core Services
+$app->registerCoreServices();
 
-	// Main APP CONF
-	require_once __DIR__ .  '/' . 'config/app.php';
+// Initialize View (sets global $twig for backward compatibility)
+$app->make(\Oxygen\Core\View::class);
 
-	// Utilities & Uses
-	require_once __DIR__ .  '/' . 'config/utilities.php';
+// Load legacy helper functions (will be deprecated in future versions)
+if (file_exists(__DIR__ . '/app/main/functions.php')) {
+	require_once __DIR__ . '/app/main/functions.php';
+}
 
-	// Configurations
-	require_once __DIR__ .  '/' . 'config/config.php';
+// Load base controller
+if (file_exists(__DIR__ . '/app/Controllers/Controller.php')) {
+	require_once __DIR__ . '/app/Controllers/Controller.php';
+}
 
-	// Databse connection
-	require_once __DIR__ .  '/' . 'config/database.php';
-
-	// Security
-	//require_once __DIR__ .  '/' . 'config/security.php';
-
-	// Email Config
-	require_once __DIR__ .  '/' . 'config/email.php';
-
-
-	// Payment Configurations
-	require_once __DIR__ .  '/' . 'config/payments.php';
-
-
-	// Codes functions
-	 require_once __DIR__ .  '/' . 'app/main/functions.php';
-
-	// View Structures
-	require_once __DIR__ .  '/' . 'config/view.php';
-
-	// Main Controller
-	require_once __DIR__ . '/' . 'app/Controllers/Controller.php';
-
-	// Templates Arrays
-	require_once __DIR__ . '/' . 'resources/templates-vars.php';
-
-	// Routing system
-	require_once __DIR__ . '/' . 'routes/web.php';
-
-
-
-?>
+return $app;

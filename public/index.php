@@ -1,1 +1,5 @@
-<?php require_once dirname(__DIR__,1) . '/' . 'server.php'; ?>
+<?php
+
+$app = require_once dirname(__DIR__, 1) . '/' . 'server.php';
+
+$app->run();

@@ -1,0 +1,10 @@
+# Allow access to storage files
+<IfModule mod_rewrite.c>
+    RewriteEngine Off
+</IfModule>
+
+# Allow all file types
+<FilesMatch "\.(jpg|jpeg|png|gif|mp4|webm|mp3|pdf|doc|docx)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>

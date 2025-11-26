@@ -1,56 +1,60 @@
 {
-    "name": "oxygen-dz/oxygenframework",
-    "type": "library",
-    "description": "Create Framework",
-    "keywords": ["package","package"],
-    "homepage": "https://github.com/Oxygen-dz/oxygenframework",
+    "name": "redwan-aouni/oxygen-framework",
+    "description": "The Most Advanced PHP Framework - AI-Powered, GraphQL, WebSocket, Queue System, and More",
+    "type": "project",
+    "keywords": [
+        "framework",
+        "php",
+        "ai",
+        "graphql",
+        "websocket",
+        "oxygen",
+        "redwan-aouni",
+        "algeria"
+    ],
+    "homepage": "https://github.com/redwan-aouni/oxygen-framework",
     "license": "MIT",
     "authors": [
         {
-            "name": "Redwan Aouni",
+            "name": "REDWAN AOUNI",
             "email": "aouniradouan@gmail.com",
-            "role": "Developer"
+            "homepage": "https://github.com/redwan-aouni",
+            "role": "Creator & Lead Developer"
         }
     ],
-    "require": {
-        "guzzlehttp/guzzle": "7.4.5",
-        "google/auth": "^1.16",
-        "nesbot/carbon": "^2.51",
-        "filp/whoops": "^2.14",
-        "nette/database": "^3.1",
-        "mevdschee/php-crud-api": "^2.12",
-        "verot/class.upload.php": "^2.1",
-        "madeorsk/nocsrf": "^1.1",
-        "pikanji/agent-plugin": "^1.0",
-        "twilio/sdk": "^6.27",
-        "sendgrid/sendgrid": "^7.9",
-        "league/omnipay": "^3.2",
-        "omnipay/stripe": "^3.1",
-        "omnipay/paypal": "^3.0",
-        "academe/omnipay-authorizenetapi": "^3.1",
-        "semyonchetvertnyh/omnipay-paysera": "^0.1.0",
-        "omnipay/mollie": "^5.4",
-        "nelexa/zip": "^3.3",
-        "markrogoyski/math-php": "^2.4",
-        "amitkkhanchandani/faceplusplus": "dev-master",
-        "dompdf/dompdf": "^1.0",
-        "twig/twig": "^3.3",
-        "fakerphp/faker": "^1.15",
-        "vlucas/phpdotenv": "^5.4",
-        "bramus/router": "~1.6",
-        "pragmarx/random": "^0.2.2",
-        "prog98rammer/php-session": "^1.0",
-        "league/oauth2-client": "^2.6",
-        "league/oauth2-github": "^3.0",
-        "league/oauth2-instagram": "^3.0",
-        "league/oauth2-google": "^4.0",
-        "league/oauth2-facebook": "^2.0",
-        "chargily/epay-php": "^1.0",
-        "ubexpay/php_sdk": "^1.0"
+    "support": {
+        "email": "aouniradouan@gmail.com",
+        "issues": "https://github.com/redwan-aouni/oxygen-framework/issues",
+        "source": "https://github.com/redwan-aouni/oxygen-framework"
     },
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        }
-    }
+    "require": {
+        "php": ">=7.4",
+        "bramus/router": "^1.6",
+        "nette/database": "^3.1",
+        "twig/twig": "^3.0",
+        "vlucas/phpdotenv": "^5.5",
+        "filp/whoops": "^2.18",
+        "aws/aws-sdk-php": "^3.0",
+        "firebase/php-jwt": "6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Oxygen\\": "app/",
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helpers/storage.php",
+            "app/helpers/api.php"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }

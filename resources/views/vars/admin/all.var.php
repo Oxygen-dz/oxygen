@@ -1,9 +1,0 @@
-<?php
-
-$AdminPage      =   array();
-$AdminPage      =  [
-
-];
-
-
-?>

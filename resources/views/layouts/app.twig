@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}OxygenFramework Application{% endblock %}">
+    <title>{% block title %}{{ APP_NAME }}{% endblock %}</title>
+    
+    {# CSS Assets #}
+    {{ oxygen_css()|raw }}
+    
+    {# Custom page styles #}
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    {# Navigation #}
+    {% include 'components/navbar.twig' %}
+    
+    {# Flash Messages #}
+    {% include 'components/flash.twig' %}
+    
+    {# Main Content #}
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    
+    {# Footer #}
+    {% include 'components/footer.twig' %}
+    
+    {# JavaScript Assets #}
+    {{ oxygen_js()|raw }}
+    
+    {# Custom page scripts #}
+    {% block scripts %}{% endblock %}
+</body>
+</html>

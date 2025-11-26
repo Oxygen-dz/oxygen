@@ -1,33 +1,27 @@
 <?php
 /**
- * errors.php
+ * Error Handling Configuration
  *
- * Error Handler
+ * OxygenFramework 2.0
  *
- * @category   E-Wallet
- * @package    Oxygen
- * @author     Redwan Aouni <aouniradouan@gmail.com>
- * @copyright  2021 - Oxygen
- * @version    1.0.0
- * @since      File available since Release 1.0.0
+ * @package    OxygenFramework
+ * @author     REDWAN AOUNI <aouniradouan@gmail.com>
+ * @copyright  2024 - REDWAN AOUNI
+ * @version    2.0.0
  */
 
+return [
+    /*
+    |--------------------------------------------------------------------------
+    | Error Handling
+    |--------------------------------------------------------------------------
+    |
+    | Configure how errors are displayed and reported.
+    |
+    */
 
-
-
-    define("DEV_MODE", TRUE); // if set TRUE Every error display NOTE : DON'T PUT THIS TRUE IN PRODUCTION MODE BECAUSE OF SECURITY REASONS
-
-
-
-    if ( DEV_MODE ) {
-        // Whoops Error Handler
-        $whoops = new \Whoops\Run;
-        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-        $whoops->register();
-        
-    }else{
-
-        ini_set('display_errors', 0);
-        ini_set('display_startup_errors', 0);
-
-    }
+    'dev_mode' => env('APP_DEBUG', true),
+    'display_errors' => env('APP_DEBUG', true),
+    'display_startup_errors' => env('APP_DEBUG', true),
+    'error_reporting' => E_ALL,
+];

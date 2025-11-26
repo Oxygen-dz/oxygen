@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ APP_NAME }} - Example Page</title>
+
+    {# Load CSS from public/css/ #}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">{{ APP_NAME }}</a>
+            <ul class="navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                {% if auth.check %}
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+                {% else %}
+                <li><a href="/login">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card mt-4">
+            <h1 class="card-title">Welcome to {{ APP_NAME }}</h1>
+            <div class="card-body">
+                <p>This is an example page showing how to use CSS and JavaScript assets.</p>
+
+                {# Example: Display image from storage #}
+                <img src="{{ storage('images/image-1.jpg') }}" alt="Logo" style="max-width: 200px;">
+
+                {# Example: Display video from storage #}
+                <video controls style="width: 100%; margin-top: 20px;">
+                    <source src="{{ storage('upload/videos/video-1.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Example Form</h2>
+            <form method="POST" action="{{ url('submit') }}">
+                {{ csrf_field|raw }}
+
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" class="form-control" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Example Alerts</h2>
+            <div class="alert alert-success">This is a success message!</div>
+            <div class="alert alert-danger">This is an error message!</div>
+            <div class="alert alert-warning">This is a warning message!</div>
+            <div class="alert alert-info">This is an info message!</div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Example Buttons</h2>
+            <button class="btn btn-primary" onclick="Oxygen.notify('Hello!', 'success')">Show Notification</button>
+            <button class="btn btn-secondary" onclick="testAjax()">Test AJAX</button>
+            <button class="btn btn-danger" onclick="testConfirm()">Test Confirm</button>
+        </div>
+    </div>
+
+    {# Load JavaScript from public/js/ #}
+    <script src="{{ asset('js/main.js') }}"></script>
+
+    {# Custom page script #}
+    <script>
+        function testAjax() {
+            Oxygen.ajax('/api/test')
+                .then(data => {
+                    Oxygen.notify('AJAX request successful!', 'success');
+                    console.log(data);
+                })
+                .catch(error => {
+                    Oxygen.notify('AJAX request failed!', 'danger');
+                });
+        }
+
+        function testConfirm() {
+            Oxygen.confirm('Are you sure you want to do this?').then(result => {
+                if (result) {
+                    Oxygen.notify('You clicked OK!', 'info');
+                } else {
+                    Oxygen.notify('You clicked Cancel!', 'warning');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
